@@ -12,7 +12,7 @@ const layout = ({ children }: Props) => {
                 <Navbar />
             </header>
             {children}
-            <footer className="text-center text-xs">
+            <footer className="text-center text-xs text-zinc-400">
                 &copy; 2024 NSMSA, Bangladesh. All Rights Reserved
             </footer>
         </div>

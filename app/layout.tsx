@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Chakra_Petch } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 import ConvexClientProvider from "./ConvexClientProvider";
 import "./globals.css";
 
-const chakraPetch = Chakra_Petch({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const baloo_2 = Baloo_2({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
     title: "Notify",
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={chakraPetch.className}>
+            <body className={baloo_2.className}>
                 <ConvexClientProvider>{children}</ConvexClientProvider>
             </body>
         </html>

@@ -38,9 +38,9 @@ body,
 
 @layer base {
     * {
-        @apply select-none;
+        @apply select-none text-foreground;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background;
     }
 }
