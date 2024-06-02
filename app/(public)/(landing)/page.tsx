@@ -11,7 +11,7 @@ const Landing = () => {
     return (
         <main className="flex-1 h-full flex max-md:flex-col items-center justify-between gap-20">
             <section className="flex-1 max-md:w-full md:h-full flex justify-center md:justify-end items-center max-md:items-end">
-                <div className="w-full max-md:max-w-[350px]">
+                <div className="w-full max-md:max-w-[350px] max-sm:max-w-[280px]">
                     <Image src={heroImage} alt="Hero Image" />
                 </div>
             </section>
