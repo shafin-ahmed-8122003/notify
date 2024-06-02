@@ -8,7 +8,7 @@ type Props = {
     children: React.ReactNode;
 };
 
-const layout = ({ children }: Props) => {
+const PrivateLayout = ({ children }: Props) => {
     const { isAuthenticated, isLoading } = useConvexAuth();
 
     if (isLoading) {
@@ -26,4 +26,4 @@ const layout = ({ children }: Props) => {
     return <>{children}</>;
 };
 
-export default layout;
+export default PrivateLayout;

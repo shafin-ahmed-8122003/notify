@@ -1,9 +1,10 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Sidebar from "../_components/Sidebar";
 
-const page = () => {
+const Documents = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const handleSidebarOpen = () => {
@@ -18,4 +19,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Documents;
