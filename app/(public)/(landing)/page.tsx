@@ -6,6 +6,7 @@ import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 import { AuthLoading, Authenticated, Unauthenticated } from "convex/react";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Landing = () => {
     return (
@@ -27,7 +28,9 @@ const Landing = () => {
                         </div>
                     </AuthLoading>
                     <Authenticated>
-                        <Button variant="primary">Create your notes</Button>
+                        <Link href="/documents">
+                            <Button variant="primary">Create your notes</Button>
+                        </Link>
                     </Authenticated>
                     <Unauthenticated>
                         <>
