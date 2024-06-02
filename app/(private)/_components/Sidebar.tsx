@@ -2,7 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/clerk-react";
-import { PanelLeftCloseIcon } from "lucide-react";
+import { FullscreenIcon, MinimizeIcon, PanelLeftCloseIcon } from "lucide-react";
+import { useState } from "react";
 
 type Props = {
     sidebarOpen: boolean;
@@ -10,7 +11,18 @@ type Props = {
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: Props) => {
+    const [isFullScreen, setFullScreenState] = useState(false);
     const { user } = useUser();
+
+    const handleFullScreen = () => {
+        setFullScreenState((prevState) => !prevState);
+
+        if (isFullScreen) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
+    };
 
     return (
         <aside
@@ -27,7 +39,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: Props) => {
             >
                 <PanelLeftCloseIcon />
             </div>
-            <div className="hidden w-1 h-full bg-foreground opacity-20 absolute right-0 group-hover/sidebar:block cursor-col-resize"></div>
+            <div
+                role="button"
+                onClick={handleFullScreen}
+                className="w-12 h-12 absolute top-12 right-0 flex justify-center items-center"
+            >
+                {isFullScreen ? <MinimizeIcon /> : <FullscreenIcon />}
+            </div>
+            <div className="hidden w-1 h-full bg-foreground opacity-20 absolute top-0 right-0 group-hover/sidebar:block cursor-col-resize"></div>
         </aside>
     );
 };
