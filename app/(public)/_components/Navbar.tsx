@@ -24,7 +24,7 @@ const Navbar = () => {
             </Authenticated>
             <Unauthenticated>
                 <SignInButton mode="modal">
-                    <Button>Login</Button>
+                    <Button className="px-0">Login</Button>
                 </SignInButton>
             </Unauthenticated>
         </nav>
