@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Chakra_Petch } from "next/font/google";
 import ConvexClientProvider from "./ConvexClientProvider";
 import "./globals.css";
@@ -8,6 +8,10 @@ const chakraPetch = Chakra_Petch({ subsets: ["latin"], weight: ["400", "600", "7
 export const metadata: Metadata = {
     title: "Notify",
     description: "An app to create, manage, and collaborate notes with ease",
+};
+
+export const viewport: Viewport = {
+    userScalable: false,
 };
 
 export default function RootLayout({
