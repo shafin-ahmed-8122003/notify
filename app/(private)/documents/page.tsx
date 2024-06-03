@@ -21,9 +21,12 @@ const Documents = () => {
     return (
         <div className="h-full">
             {docs && docs.length > 0 ? (
-                <div className="grid max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-8">
                     {docs.map((doc) => (
-                        <div className="w-60 h-60 relative bg-background shadow-xl border-secondary border rounded-md overflow-hidden">
+                        <div
+                            key={doc._id}
+                            className="w-60 h-60 relative bg-background shadow-xl border-secondary border rounded-md overflow-hidden"
+                        >
                             <div className="w-full h-20 p-4 flex flex-col bg-secondary [&>*]:text-secondary-foreground absolute bottom-0">
                                 <h1>{doc.title}</h1>
                                 <time className="text-xs">{formatDate(doc._creationTime)}</time>
