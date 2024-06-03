@@ -1,3 +1,4 @@
+import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
 export const getDocs = query({
@@ -15,5 +16,12 @@ export const createDoc = mutation({
             name: "Shafin",
             wife: "Medha",
         });
+    },
+});
+
+export const deleteDoc = mutation({
+    args: { docsId: v.id("docs") },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.docsId);
     },
 });

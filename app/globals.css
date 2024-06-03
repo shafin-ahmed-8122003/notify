@@ -8,6 +8,15 @@ body,
     height: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+}
+
 @layer base {
     :root {
         --background: 0 0 93;
