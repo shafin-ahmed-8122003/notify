@@ -10,7 +10,8 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: "bg-transparent text-primary hover:bg-zinc-200",
-                primary: "bg-primary text-primary-foreground hover:brightness-[80%]",
+                primary:
+                    "bg-primary border-b-4 border-b-secondary text-primary-foreground hover:brightness-[80%] active:border-b-2",
                 secondaryOutline: "bg-transparent text-secondary hover:bg-zinc-600/5",
             },
             size: {

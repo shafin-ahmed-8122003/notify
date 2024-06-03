@@ -2,15 +2,20 @@
 
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/clerk-react";
-import { FullscreenIcon, MinimizeIcon, PanelLeftCloseIcon } from "lucide-react";
+import {
+    FullscreenIcon,
+    MinimizeIcon,
+    PanelLeftCloseIcon,
+    PanelRightCloseIcon,
+} from "lucide-react";
 import { useState } from "react";
 
 type Props = {
     sidebarOpen: boolean;
-    setSidebarOpen: () => void;
+    handleSidebarOpen: () => void;
 };
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }: Props) => {
+const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
     const [isFullScreen, setFullScreenState] = useState(false);
     const { user } = useUser();
 
@@ -34,10 +39,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: Props) => {
             <h1 className="text-2xl font-bold">{user?.firstName}</h1>
             <div
                 role="button"
-                onClick={setSidebarOpen}
+                onClick={handleSidebarOpen}
                 className="w-12 h-12 absolute top-0 right-0 flex justify-center items-center"
             >
-                <PanelLeftCloseIcon />
+                {sidebarOpen ? <PanelLeftCloseIcon /> : <PanelRightCloseIcon />}
             </div>
             <div
                 role="button"
