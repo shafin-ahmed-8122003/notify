@@ -13,7 +13,7 @@ export const createDoc = mutation({
     args: {},
     handler: async (ctx, args) => {
         await ctx.db.insert("docs", {
-            name: "Shafin",
+            title: "Shafin",
             wife: "Medha",
         });
     },

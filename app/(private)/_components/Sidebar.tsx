@@ -4,9 +4,11 @@ import Column from "@/components/Column";
 import Row from "@/components/Row";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { UserButton, useUser } from "@clerk/clerk-react";
-import { SearchIcon } from "lucide-react";
+import { useMutation } from "convex/react";
+import { PlusIcon, SearchIcon } from "lucide-react";
 import FullScreenBtn from "./FullScreenBtn";
 import List from "./List";
 import ResizingBar from "./ResizingBar";
@@ -19,6 +21,11 @@ type Props = {
 
 const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
     const { user } = useUser();
+    const createDoc = useMutation(api.documents.createDoc);
+
+    const handleCreateNote = async () => {
+        await createDoc();
+    };
 
     return (
         <aside
@@ -53,8 +60,17 @@ const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
                 />
                 <FullScreenBtn />
             </Column>
-            <ResizingBar />
+            <Button
+                onClick={handleCreateNote}
+                size="sm"
+                variant="primary"
+                className="flex items-center gap-2"
+            >
+                <span className="text-primary-foreground">New Note</span>
+                <PlusIcon className="w-3 stroke-[3px]" />
+            </Button>
             <List />
+            <ResizingBar />
         </aside>
     );
 };

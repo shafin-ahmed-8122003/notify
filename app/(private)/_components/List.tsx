@@ -18,14 +18,14 @@ const List = () => {
             {docs?.map((doc) => (
                 <Button
                     key={doc._id}
-                    className="group/document-btn flex justify-between items-center w-full px-0 pr-2"
+                    className="group/document-btn flex justify-between items-center w-full px-0 pr-2 h-8"
                     variant="secondaryGhost"
                     size="sm"
                 >
                     <p className="flex items-center gap-1 [&>*]:stroke-secondary font-normal text-xs">
                         <FileIcon className="w-4" />
                         <span className="text-secondary">
-                            {doc.name.length > 10 ? `${doc.name.slice(0, 10)}...` : doc.name}
+                            {doc.title.length > 10 ? `${doc.title.slice(0, 10)}...` : doc.title}
                         </span>
                     </p>
                     <div className="sm:opacity-0 sm:group-hover/document-btn:opacity-100 w-8 h-full flex items-center justify-center gap-2">
