@@ -34,7 +34,12 @@ const PrivateLayout = ({ children }: Props) => {
     return (
         <>
             <Sidebar sidebarOpen={sidebarOpen} handleSidebarOpen={handleSidebarOpen} />
-            <main className={cn("py-4 pr-4 h-full", sidebarOpen ? "pl-64" : "pl-16")}>
+            <main
+                className={cn(
+                    "py-4 pr-4 h-full",
+                    sidebarOpen ? "pl-64 max-sm:pl-16 disabled" : "pl-16"
+                )}
+            >
                 {children}
             </main>
         </>

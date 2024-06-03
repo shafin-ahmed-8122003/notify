@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useUser } from "@clerk/clerk-react";
+import { UserButton, useUser } from "@clerk/clerk-react";
 import {
     FullscreenIcon,
     MinimizeIcon,
@@ -32,11 +32,16 @@ const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
     return (
         <aside
             className={cn(
-                "group/sidebar w-60 fixed top-0 left-0 bg-background brightness-95 h-full p-4 pr-12 transition-transform",
+                "group/sidebar w-60 fixed top-0 left-0 bg-background brightness-95 h-full p-4 pr-12 transition-transform z-40",
                 sidebarOpen ? null : "-translate-x-48"
             )}
         >
-            <h1 className="text-2xl font-bold">{user?.firstName}</h1>
+            <div className="flex items-center gap-4">
+                <UserButton
+                    appearance={{ elements: { userButtonAvatarBox: "w-8 h-8 rounded-sm" } }}
+                />
+                <h1 className="text-2xl font-bold">{user?.firstName}</h1>
+            </div>
             <div
                 role="button"
                 onClick={handleSidebarOpen}

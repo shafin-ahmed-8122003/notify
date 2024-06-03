@@ -34,13 +34,13 @@ const Landing = () => {
                     </Authenticated>
                     <Unauthenticated>
                         <>
-                            <SignUpButton mode="modal">
+                            <SignUpButton forceRedirectUrl="/documents" mode="modal">
                                 <Button className="" variant="primary">
                                     Get Started
                                 </Button>
                             </SignUpButton>
                             <div className="h-2" />
-                            <SignInButton mode="modal">
+                            <SignInButton forceRedirectUrl="/documents" mode="modal">
                                 <Button className="text-sm" variant="secondaryOutline">
                                     I already have an account
                                 </Button>
