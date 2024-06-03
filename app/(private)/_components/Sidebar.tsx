@@ -23,7 +23,7 @@ const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
     return (
         <aside
             className={cn(
-                "group/sidebar w-60 fixed top-0 left-0 bg-background brightness-95 h-full p-4 pr-10 transition-transform z-40 flex flex-col gap-4",
+                "group/sidebar w-60 fixed top-0 left-0 bg-background brightness-95 h-full p-4 pr-12 transition-transform z-40 flex flex-col gap-4",
                 sidebarOpen ? null : "-translate-x-48"
             )}
         >
@@ -46,7 +46,7 @@ const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
                     <SearchIcon />
                 </Button>
             </Row>
-            <Column className="w-10 h-full absolute top-0 right-0 gap-4 p-2 items-center">
+            <Column className="w-12 h-full absolute top-0 right-0 gap-4 p-2 items-center">
                 <SidebarCollapseBtn
                     sidebarOpen={sidebarOpen}
                     handleSidebarOpen={handleSidebarOpen}
