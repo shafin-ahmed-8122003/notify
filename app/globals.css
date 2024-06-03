@@ -10,27 +10,27 @@ body,
 
 @layer base {
     :root {
-        --background: #eeeeee;
-        --foreground: #333333;
+        --background: 0 0 93;
+        --foreground: 0 0 20;
 
-        --primary: #40a578;
-        --primary-foreground: #eeeeee;
+        --primary: 153 44 45;
+        --primary-foreground: 0 0 93;
 
-        --secondary: #006769;
-        --secondary-foreground: #eeeeee;
+        --secondary: 181 100 21;
+        --secondary-foreground: 0 0 93;
 
         --radius: 0.5rem;
     }
 
     .dark {
-        --background: #eeeeee;
-        --foreground: #333333;
+        --background: 0 0 93;
+        --foreground: 0 0 20;
 
-        --primary: #40a578;
-        --primary-foreground: #eeeeee;
+        --primary: 153 44 45;
+        --primary-foreground: 0 0 93;
 
-        --secondary: #006769;
-        --secondary-foreground: #eeeeee;
+        --secondary: 181 100 21;
+        --secondary-foreground: 0 0 93;
 
         --radius: 0.5rem;
     }

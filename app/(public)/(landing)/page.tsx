@@ -41,7 +41,7 @@ const Landing = () => {
                             </SignUpButton>
                             <div className="h-2" />
                             <SignInButton forceRedirectUrl="/documents" mode="modal">
-                                <Button className="text-sm" variant="secondaryOutline">
+                                <Button className="text-sm" variant="secondaryGhost">
                                     I already have an account
                                 </Button>
                             </SignInButton>
