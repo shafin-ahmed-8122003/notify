@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import BackButton from "./_components/BackButton";
 
-const page = () => {
+const NotePage = () => {
     const params = useParams();
     const notes = useQuery(api.notes.getNotes);
     const [note, setNote] = useState({
@@ -39,4 +39,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default NotePage;

@@ -9,7 +9,7 @@ const SidebarAllNotesSection = () => {
 
     return (
         <section className="w-full h-full flex flex-col overflow-y-auto">
-            {allNotes?.map((note) => <SidebarNoteItem note={note} />)}
+            {allNotes?.map((note) => <SidebarNoteItem key={note._id} note={note} />)}
         </section>
     );
 };
