@@ -13,7 +13,7 @@ const Documents = () => {
             {docs && docs.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-8">
                     {docs.map((doc) => (
-                        <DocsBox doc={doc} />
+                        <DocsBox key={doc._id} doc={doc} />
                     ))}
                 </div>
             ) : (
