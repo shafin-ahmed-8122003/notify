@@ -14,7 +14,7 @@ export const createNote = mutation({
     handler: async (ctx, args) => {
         const newNote = await ctx.db.insert("notes", {
             title: "Shafin",
-            wife: "Medha",
+            body: "Medha",
         });
         console.log(newNote);
         return newNote;
