@@ -12,6 +12,10 @@ const buttonVariants = cva(
                 default: "bg-transparent text-primary hover:bg-zinc-200",
                 primary:
                     "bg-primary border-b-4 border-b-secondary text-primary-foreground hover:brightness-[80%] active:border-b-2 [&>*]:stroke-primary-foreground",
+                primaryGhost:
+                    "bg-transparent text-primary hover:bg-zinc-600/5 [&>*]:stroke-primary",
+                primaryOutline:
+                    "bg-transparent text-primary border-primary border-2 hover:bg-primary hover:text-primary-foreground [&>*]:stroke-primary [&>*]:hover:stroke-primary-foreground",
                 secondary:
                     "bg-secondary border-b-4 border-b-black/30 text-secondary-foreground hover:brightness-[80%] active:border-b-2 [&>*]:stroke-secondary-foreground",
                 secondaryOutline:
