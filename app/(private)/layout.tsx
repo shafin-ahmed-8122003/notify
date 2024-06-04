@@ -1,8 +1,8 @@
 "use client";
 
+import LoadingIcon from "@/components/LoadingIcon";
 import { cn } from "@/lib/utils";
 import { useConvexAuth } from "convex/react";
-import { Loader } from "lucide-react";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import Sidebar from "./_components/Sidebar";
@@ -13,16 +13,16 @@ type Props = {
 
 const PrivateLayout = ({ children }: Props) => {
     const { isAuthenticated, isLoading } = useConvexAuth();
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsedState] = useState(true);
 
-    const handleSidebarOpen = () => {
-        setSidebarOpen((prevState) => !prevState);
+    const handleSidebarCollapsedStateChange = () => {
+        setSidebarCollapsedState((prevState) => !prevState);
     };
 
     if (isLoading) {
         return (
             <main className="h-full flex justify-center items-center">
-                <Loader className="stroke-primary animate-spin" />
+                <LoadingIcon />
             </main>
         );
     }
@@ -33,11 +33,14 @@ const PrivateLayout = ({ children }: Props) => {
 
     return (
         <>
-            <Sidebar sidebarOpen={sidebarOpen} handleSidebarOpen={handleSidebarOpen} />
+            <Sidebar
+                sidebarCollapsed={sidebarCollapsed}
+                handleSidebarCollapsedStateChange={handleSidebarCollapsedStateChange}
+            />
             <main
                 className={cn(
                     "py-4 pr-4 h-full",
-                    sidebarOpen ? "pl-64 max-sm:pl-16 disabled" : "pl-16"
+                    sidebarCollapsed ? "pl-16" : "pl-64 max-sm:pl-16"
                 )}
             >
                 {children}

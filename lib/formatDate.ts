@@ -1,3 +1,5 @@
+// This function takes a timestamp and returns a formatted time representation
+
 export function formatDate(timestamp: string): string {
     const date = new Date(timestamp);
     const options: Intl.DateTimeFormatOptions = {

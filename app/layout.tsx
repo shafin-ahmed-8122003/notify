@@ -1,10 +1,8 @@
+import fonts from "@/lib/fonts";
 import type { Metadata, Viewport } from "next";
-import { Baloo_2 } from "next/font/google";
 import { Toaster } from "sonner";
 import ConvexClientProvider from "./ConvexClientProvider";
 import "./globals.css";
-
-const baloo_2 = Baloo_2({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
     title: "Notify",
@@ -22,7 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={baloo_2.className}>
+            <body className={fonts.baloo_2.className}>
                 <ConvexClientProvider>
                     {children}
                     <Toaster

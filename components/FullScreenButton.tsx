@@ -1,7 +1,7 @@
 import { FullscreenIcon, MinimizeIcon } from "lucide-react";
 import { useState } from "react";
 
-const FullScreenBtn = () => {
+const FullScreenButton = () => {
     const [isFullScreen, setFullScreenState] = useState(false);
 
     const handleFullScreen = () => {
@@ -21,4 +21,4 @@ const FullScreenBtn = () => {
     );
 };
 
-export default FullScreenBtn;
+export default FullScreenButton;

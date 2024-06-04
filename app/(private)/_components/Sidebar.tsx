@@ -1,76 +1,42 @@
-"use client";
-
-import Column from "@/components/Column";
 import Row from "@/components/Row";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
-import { UserButton, useUser } from "@clerk/clerk-react";
-import { useMutation } from "convex/react";
-import { PlusIcon, SearchIcon } from "lucide-react";
-import FullScreenBtn from "./FullScreenBtn";
-import List from "./List";
-import ResizingBar from "./ResizingBar";
-import SidebarCollapseBtn from "./SidebarCollapseBtn";
+import { UserButton } from "@clerk/clerk-react";
+import SidebarAllNotesSection from "../_sections/SidebarAllNotesSection";
+import CreateNoteButton from "./CreateNoteButton";
+import SearchBox from "./SearchBox";
+import SidebarOptions from "./SidebarOptions";
+import SidebarResizingBar from "./SidebarResizingBar";
+import UserName from "./UserName";
 
 type Props = {
-    sidebarOpen: boolean;
-    handleSidebarOpen: () => void;
+    sidebarCollapsed: boolean;
+    handleSidebarCollapsedStateChange: () => void;
 };
 
-const Sidebar = ({ sidebarOpen, handleSidebarOpen }: Props) => {
-    const { user } = useUser();
-    const createDoc = useMutation(api.documents.createDoc);
-
-    const handleCreateNote = async () => {
-        await createDoc();
-    };
-
+const Sidebar = ({ sidebarCollapsed, handleSidebarCollapsedStateChange }: Props) => {
     return (
         <aside
             className={cn(
                 "group/sidebar w-60 fixed top-0 left-0 bg-background brightness-95 h-full p-4 pr-12 transition-transform z-40 flex flex-col gap-4",
-                sidebarOpen ? null : "-translate-x-48"
+                sidebarCollapsed ? "-translate-x-48" : null
             )}
         >
+            <SidebarResizingBar />
+            <SidebarOptions
+                sidebarCollapsed={sidebarCollapsed}
+                handleSidebarCollapsedStateChange={handleSidebarCollapsedStateChange}
+            />
             <Row className="gap-4">
                 <UserButton
                     appearance={{ elements: { userButtonAvatarBox: "w-8 h-8 rounded-sm" } }}
                 />
-                <h1 className="text-2xl text-secondary font-bold">{user?.firstName}</h1>
+                <h1 className="text-2xl text-secondary font-bold">
+                    <UserName />
+                </h1>
             </Row>
-            <Row className="h-10">
-                <Input
-                    autoFocus
-                    className="h-full rounded-r-none border-secondary border-2 text-xs"
-                    placeholder="Search your notes"
-                />
-                <Button
-                    className="h-full px-3 border-0 rounded-l-none [&>*]:w-4"
-                    variant="secondary"
-                >
-                    <SearchIcon />
-                </Button>
-            </Row>
-            <Column className="w-12 h-full absolute top-0 right-0 gap-4 p-2 items-center">
-                <SidebarCollapseBtn
-                    sidebarOpen={sidebarOpen}
-                    handleSidebarOpen={handleSidebarOpen}
-                />
-                <FullScreenBtn />
-            </Column>
-            <Button
-                onClick={handleCreateNote}
-                size="sm"
-                variant="primary"
-                className="flex items-center gap-2"
-            >
-                <span className="text-primary-foreground">New Note</span>
-                <PlusIcon className="w-3 stroke-[3px]" />
-            </Button>
-            <List />
-            <ResizingBar />
+            <SearchBox />
+            <CreateNoteButton size="sm" title="New Note" />
+            <SidebarAllNotesSection />
         </aside>
     );
 };

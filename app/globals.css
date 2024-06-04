@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-    height: 100%;
-}
-
 ::-webkit-scrollbar {
     width: 6px;
     background-color: hsl(var(--background));
@@ -46,6 +40,11 @@ body,
 }
 
 @layer base {
+    html,
+    body,
+    :root {
+        height: 100%;
+    }
     * {
         @apply select-none text-foreground;
     }

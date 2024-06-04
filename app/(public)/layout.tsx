@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
+import Header from "./_components/Header";
 
 type Props = {
     children: React.ReactNode;
@@ -8,13 +9,9 @@ type Props = {
 const layout = ({ children }: Props) => {
     return (
         <div className="flex flex-col h-full p-4 xl:px-60 lg:px-40 md:px-16 lg:py-6">
-            <header>
-                <Navbar />
-            </header>
+            <Header />
             {children}
-            <footer className="text-center text-xs text-zinc-400">
-                &copy; 2024 NSMSA, Bangladesh. All Rights Reserved
-            </footer>
+            <Footer />
         </div>
     );
 };
