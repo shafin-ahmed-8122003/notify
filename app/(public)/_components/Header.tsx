@@ -21,7 +21,9 @@ const Header = () => {
                     <Loader className="animate-spin text-primary" />
                 </AuthLoading>
                 <Authenticated>
-                    <UserButton />
+                    <UserButton
+                        appearance={{ elements: { userButtonAvatarBox: "w-8 h-8 rounded-sm" } }}
+                    />
                 </Authenticated>
                 <Unauthenticated>
                     <SignInButton mode="modal">

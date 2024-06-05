@@ -5,6 +5,7 @@ import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import BackButton from "./_components/BackButton";
+import NoteBody from "./_components/NoteBody";
 import NoteTitle from "./_components/NoteTitle";
 import SaveButton from "./_components/SaveButton";
 
@@ -32,7 +33,9 @@ const NotePageLayout = ({ children }: { children: React.ReactNode }) => {
                 </div>
                 {note && <SaveButton note={note} />}
             </nav>
-            <div className="pt-4">{children}</div>
+            <div className="w-full h-full p-4">
+                {note && <NoteBody note={note} bodyChangeHandler={setNote} />}
+            </div>
         </section>
     );
 };
