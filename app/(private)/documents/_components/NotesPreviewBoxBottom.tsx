@@ -7,7 +7,7 @@ const NotesPreviewBoxBottom = ({ note }: { note: any }) => {
             <h1 className="font-bold">{note.title}</h1>
             <time className="text-xs">{formatDate(note._creationTime)}</time>
             <DeleteNoteButton
-                className="absolute right-0 bottom-0 opacity-0 group-hover/docsbox:opacity-100"
+                className="absolute right-2 bottom-2 opacity-0 [&>*]:stroke-secondary-foreground group-hover/docsbox:opacity-100"
                 noteId={note._id}
             />
         </div>

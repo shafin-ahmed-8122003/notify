@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import BackButton from "./_components/BackButton";
 import NoteTitle from "./_components/NoteTitle";
+import SaveButton from "./_components/SaveButton";
 
 const NotePageLayout = ({ children }: { children: React.ReactNode }) => {
     const params = useParams();
@@ -23,16 +23,14 @@ const NotePageLayout = ({ children }: { children: React.ReactNode }) => {
         }
     }, [notes]);
 
-    const handleSave = () => {};
-
     return (
         <section>
             <nav className="h-16 pl-2 pr-4 rounded-lg flex items-center justify-between bg-secondary">
                 <div className="flex items-center gap-2 text-xl">
                     <BackButton />
-                    <NoteTitle note={note && note} titleChangeHandler={setNote} />
+                    {note && <NoteTitle note={note} titleChangeHandler={setNote} />}
                 </div>
-                <Button variant="primaryOutline">Save</Button>
+                {note && <SaveButton note={note} />}
             </nav>
             <div className="pt-4">{children}</div>
         </section>

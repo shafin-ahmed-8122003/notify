@@ -12,7 +12,7 @@ const EmptyNotesSection = () => {
                 </h1>
                 <p>You don{"'"}t have any notes yet!</p>
             </div>
-            <CreateNoteButton title="Create One" />
+            <CreateNoteButton note={{ title: "", body: "" }} title="Create One" />
         </section>
     );
 };

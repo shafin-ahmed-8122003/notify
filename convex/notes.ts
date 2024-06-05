@@ -10,14 +10,24 @@ export const getNotes = query({
 });
 
 export const createNote = mutation({
-    args: {},
+    args: { title: v.string(), body: v.string() },
     handler: async (ctx, args) => {
         const newNote = await ctx.db.insert("notes", {
-            title: "Shafin",
-            body: "Medha",
+            title: args.title ? args.title : "untitled",
+            body: args.body,
         });
         console.log(newNote);
         return newNote;
+    },
+});
+
+export const updateNote = mutation({
+    args: { noteId: v.id("notes"), newNoteData: v.any() },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.noteId, {
+            title: args.newNoteData.title,
+            body: args.newNoteData.body,
+        });
     },
 });
 

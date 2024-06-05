@@ -35,7 +35,7 @@ const Sidebar = ({ sidebarCollapsed, handleSidebarCollapsedStateChange }: Props)
                 </h1>
             </Row>
             <SearchBox />
-            <CreateNoteButton size="sm" title="New Note" />
+            <CreateNoteButton note={{ title: "", body: "" }} size="sm" title="New Note" />
             <SidebarAllNotesSection />
         </aside>
     );

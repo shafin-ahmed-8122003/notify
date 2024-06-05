@@ -10,16 +10,18 @@ const CreateNoteButton = ({
     title,
     size,
     className,
+    note,
 }: {
     title: string;
     size?: "default" | "sm" | "lg" | "icon" | null | undefined;
     className?: string;
+    note: any;
 }) => {
     const createNote = useMutation(api.notes.createNote);
     const router = useRouter();
 
     const handleClick = async () => {
-        const newNote = await createNote();
+        const newNote = await createNote(note);
         router.push(`/documents/${newNote}`);
         toast("New Note Created!");
     };
